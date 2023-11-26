@@ -15,12 +15,14 @@ router.delete('/deleteCliente/:cpf', ClienteController.delete);
 
 //Funcionario
 router.get('/listFuncionario', FuncionarioController.list);
+router.get('/findFuncionario/:cpf', FuncionarioController.find);
 router.post('/storeFuncionario/', FuncionarioController.store);
 router.put('/updateFuncionario/:cpf', FuncionarioController.update);
 router.delete('/deleteFuncionario/:cpf', FuncionarioController.delete);
 
 router.post('/insertfuncionario/', FuncionarioController.store);
 router.post('/loginfuncionario', FuncionarioController.login);
+router.get('/funcionario/:cpf', FuncionarioController.find);
 router.put('/updatefuncionario/:cpf', FuncionarioController.update);
 
 //Servico
