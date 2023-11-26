@@ -1,57 +1,41 @@
 <template>
     <div id="tab_aut">
      
-       <div v-if="currentJogador" class="edit-form">
-            <h3>Jogador</h3>
+       <div v-if="currentFuncionario" class="edit-form">
+            <h3>Funcionario</h3>
             <form>
                 <div class="form-group">
-                    <label for="inputNickname">Nickname:</label>
-                    <input type="text" v-model="currentJogador.nickname" class="form-control" id="inputNickname">
+                    <label for="inputnome">nome:</label>
+                    <input type="text" v-model="currentFuncionario.nome" class="form-control" id="inputnome">
                 </div>
                 <div class="form-group">
-                    <label for="inputSenha">Senha:</label>
-                    <input type="password" v-model="currentJogador.senha" class="form-control" id="inputSenha">
+                    <label for="inputendereco">endereco:</label>
+                    <input type="text" v-model="currentFuncionario.endereco" class="form-control" id="inputendereco">
                 </div>
                 <div class="form-group">
-                        <label for="inputDtCad">D. Cadastro:</label>
-                        <input type="text" v-model="currentJogador.data_cadastro" class="form-control" id="inputDtCad" disabled>
+                    <label for="inputemail">email:</label>
+                    <input type="text" v-model="currentFuncionario.email" class="form-control" id="inputemail">
                 </div>
                 <div class="form-group">
-                    <label for="inputDtLast">D. Último Acesso:</label>
-                    <input type="text" v-model="currentJogador.data_ultimo_login" class="form-control" id="inputDtLast" disabled>
+                    <label for="inputcelular">celular:</label>
+                    <input type="text" v-model="currentFuncionario.celular" class="form-control" id="inputcelular">
                 </div>
                 <div class="form-group">
-                        <label for="inputQtdPontos">Quantidade de Pontos:</label>
-                        <input type="number" v-model="currentJogador.pontos" class="form-control" id="inputQtdPontos">
+                    <label for="inputsenha">senha:</label>
+                    <input type="text" v-model="currentFuncionario.senha" class="form-control" id="inputsenha">
                 </div>
                 <div class="form-group">
-                    <label for="inputQtdDin">Quantidade de dinheiro:</label>
-                    <input type="number" v-model="currentJogador.quantdinheiro" class="form-control" id="inputQtdDin">
+                    <label for="inputfuncao">funçao:</label>
+                    <input type="text" v-model="currentFuncionario.funcao" class="form-control" id="inputfuncao">
                 </div>
                 <div class="form-group">
-                    <label for="checkSituacao">Situação:</label>
-                    <input type="checkbox" v-model="currentJogador.situacao" id="checkSituacao">
+                    <label for="inputcargo">cargo:</label>
+                    <input type="text" v-model="currentFuncionario.cargo" class="form-control" id="inputcargo">
                 </div>
-                <div class="form-group">
-                    <label for="inputCep">Cep:</label>
-                    <input type="text" v-model="currentJogador.endereco.cep" class="form-control" id="inputCep">
-                </div>
-                <div class="form-group">
-                    <label for="inputCom">Complemento:</label>
-                    <input type="text" v-model="currentJogador.endereco.complemento" class="form-control" id="inputCom">
-                </div>
-                <div class="form-group">
-                    <label for="selectPatente">Patentes:</label>
-                    <select v-model="currentJogador.patentes" class="form-control" id="selectPatente" multiple>                                
-                        <option v-for="p in patentes" :key ="p.codigo" v-bind:value="p">
-                            {{ p.nome }}
-                            </option>
-                    </select>
-                    
-                </div>                        
+
             </form>
-            <button class="badge badge-success" @click="updateJogador">Salvar</button>
-            <button class="badge badge-danger mr-2" @click="deleteJogador">Delete</button>
+            <button class="badge badge-success" @click="updateFuncionario">Salvar</button>
+            <button class="badge badge-danger mr-2" @click="deleteFuncionario">Delete</button>
             <button class="badge badge-danger mr-2" @click="voltar">Voltar</button>
 
             
@@ -60,7 +44,7 @@
        </div>
        <div v-else>
             <br />
-            <p>Please click on a Jogador...</p>
+            <p>Please click on a Funcionario...</p>
         </div>
 
                                           
@@ -68,78 +52,60 @@
  </template>
  <script>
  
-     import JogadorDataService from '../../services/JogadorDataService'
-     import PatenteDataService from '../../services/PatenteDataService'
+     import FuncionarioDataService from '../../services/FuncionarioDataService'
  
      export default{
-      name:'editJogadores',
+      name:'editFuncionario',
       data() {
              return {                
-                 currentJogador: null,
+                 currentFuncionario: null,
                  message: '',
-                 patentes: []
              }
          },
          methods: {
 
-            getJogador(nickname){
+            getFuncionario(cpf){
 
-                JogadorDataService.get(nickname)
+                FuncionarioDataService.get(cpf)
                 .then(response => {
                     console.log(response.data);
-                    this.currentJogador = response.data;
+                    this.currentFuncionario = response.data;
                     
                 })
                 .catch(e=> {
                     console.log(e);
                 })
             },
-            listPatentes(){
+            updateFuncionario(){
 
-                PatenteDataService.list().then(response =>{
-
-                    console.log("Retorno do seviço PatenteDataService.list", response.status);
-
-                    this.patentes = response.data;                                  
-
-                }).catch(response => {
-
-                // error callback
-                alert('Não conectou no serviço PatenteDataService.list');
-                console.log(response);
-                });               
-            },
-            updateJogador(){
-
-                JogadorDataService.update(this.currentJogador)
+                FuncionarioDataService.update(this.currentFuncionario)
                 .then(response => {
-                    console.log('JogadorDataService.update');
-                    this.message = 'Jogador alterado com sucesso !';
+                    console.log('FuncionarioDataService.update');
+                    this.message = 'Funcionario alterado com sucesso !';
                 })
                 .catch(e =>{
                     console.log(e);
                 })
             },
-            deleteJogador(){
+            deleteFuncionario(){
 
-                JogadorDataService.delete(this.currentTutorial.nickname)
+                FuncionarioDataService.delete(this.currentFuncionario.cpf)
                 .then(response => {
                     console.log(response.data);
-                    this.$router.push({ name: "jogadores-list" });
+                    this.$router.push({ name: "funcionario-list" });
                 })
                 .catch(e => {
                 console.log(e);
                 });
             },
             voltar(){
-                this.$router.push({ name: "jogadores-list" });
+                this.$router.push({ name: "funcionario-list" });
             }
          },
          mounted() {
             
             this.message = '';
-            this.listPatentes();
-            this.getJogador(this.$route.params.nickname);
+            this.getFuncionario(this.$route.params.cpf);
          }
      }
  </script>

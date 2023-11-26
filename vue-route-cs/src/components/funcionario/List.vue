@@ -44,7 +44,7 @@
                     </div>
 
                     <a class="badge badge-warning"
-                    :href="'/funcionario/' + currentFuncionario.cpf"
+                    :href="'/updatefuncionario/' + currentFuncionario.cpf"
                     >
                     Edit
                     </a>

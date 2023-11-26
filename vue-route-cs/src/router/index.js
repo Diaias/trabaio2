@@ -3,12 +3,11 @@ import Router from 'vue-router'
 
 import login from  '@/components/Login'
 import home from  '@/components/Home'
-import listJogadores from  '@/components/jogador/List'
-import editJogador   from  '@/components/jogador/Edit'
+
 import novoFuncionario   from  '@/components/funcionario/Add'
 import listFuncionarios from  '@/components/funcionario/List'
+import editFuncionario   from  '@/components/funcionario/Edit'
 
-import listPatentes from  '@/components/patente/List'
 
 Vue.use(Router)
 
@@ -30,11 +29,11 @@ const router = new Router({
       name: 'funcionarios-list',
       component: listFuncionarios    
     },
-    /* {
-      path: '/funcionario/:cpf',
+    {
+      path: '/updatefuncionario/:cpf',
       name: "funcionario-edit",
       component: editFuncionario
-    },  */
+    }, 
     {
       path: '/addfuncionario',
       name: "funcionario-add",
