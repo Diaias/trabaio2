@@ -25,7 +25,7 @@ class FuncionarioDataService {
     async delete(cpf){
 
         console.log('FuncionarioDataService.delete: ', cpf);
-        return await http.get(`/deletefuncionario/`+cpf);
+        return await http.delete(`/deletefuncionario/`+cpf);
     }
 
     async update(data){

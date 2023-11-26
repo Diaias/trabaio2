@@ -25,6 +25,8 @@ router.post('/insertfuncionario/', FuncionarioController.store);
 router.post('/loginfuncionario', FuncionarioController.login);
 router.get('/funcionario/:cpf', FuncionarioController.find);
 router.put('/updatefuncionario/:cpf', FuncionarioController.update);
+router.delete('/deletefuncionario/:cpf', FuncionarioController.delete);
+
 
 //Servico
 router.get('/listServico', ServicoController.list);
