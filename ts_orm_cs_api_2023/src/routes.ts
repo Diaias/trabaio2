@@ -19,8 +19,7 @@ router.get('/findFuncionario/:cpf', FuncionarioController.find);
 router.post('/storeFuncionario/', FuncionarioController.store);
 router.put('/updateFuncionario/:cpf', FuncionarioController.update);
 router.delete('/deleteFuncionario/:cpf', FuncionarioController.delete);
-router.delete('/findFuncionario/:cpf', FuncionarioController.find); //find do dias
-
+router.get('/findFuncionario/:cpf', FuncionarioController.find);
 
 router.post('/insertfuncionario/', FuncionarioController.store);
 router.post('/loginfuncionario', FuncionarioController.login);

@@ -7,7 +7,7 @@ class FuncionarioController{
     async find(req: Request, res: Response){
         const repository = getRepository(Funcionario);
         const cpf = req.params.cpf;
-        const f = repository.createQueryBuilder('tb_pessoa').where({"cpf" : cpf}) ;
+        const f = await repository.findOne({where : {"cpf" : cpf}});
         if(f){     
             console.log(f);      
             return res.json(f);
@@ -15,19 +15,7 @@ class FuncionarioController{
             return res.sendStatus(204);
         }
     }
-
-    async find2(req: Request, res: Response){
-        const repository = getRepository(Funcionario);
-        const nome = req.params.nome;
-        const f = await repository.findOne({where : {"nome" : nome}});
-        if(f){     
-            console.log(f);      
-            return res.json(f);
-        }else{
-            return res.sendStatus(204);
-        }
-    }
-
+    
     async login(req: Request, res: Response){
         const repository = getRepository(Funcionario);
         const {cpf, senha} = req.body;
