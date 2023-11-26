@@ -16,6 +16,18 @@ class FuncionarioController{
         }
     }
 
+    async find2(req: Request, res: Response){
+        const repository = getRepository(Funcionario);
+        const nome = req.params.nome;
+        const f = await repository.findOne({where : {"nome" : nome}});
+        if(f){     
+            console.log(f);      
+            return res.json(f);
+        }else{
+            return res.sendStatus(204);
+        }
+    }
+
     async login(req: Request, res: Response){
         const repository = getRepository(Funcionario);
         const {cpf, senha} = req.body;
