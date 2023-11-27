@@ -13,6 +13,7 @@ import novoPeca   from  '@/components/peça/Add'
 import listPecas from  '@/components/peça/List'
 import editPeca   from  '@/components/peça/Edit'
 
+
 import novoCliente   from  '@/components/cliente/Add'
 import listClientes from  '@/components/cliente/List'
 import editCliente   from  '@/components/cliente/Edit'
