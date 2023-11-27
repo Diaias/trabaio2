@@ -8,6 +8,9 @@ import novoFuncionario   from  '@/components/funcionario/Add'
 import listFuncionarios from  '@/components/funcionario/List'
 import editFuncionario   from  '@/components/funcionario/Edit'
 
+import novoCliente   from  '@/components/cliente/Add'
+import listClientes from  '@/components/cliente/List'
+import editCliente   from  '@/components/cliente/Edit'
 
 Vue.use(Router)
 

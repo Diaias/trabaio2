@@ -13,6 +13,9 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/listFuncionarios">Funcionario</router-link>
             </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/listClientes">Cliente</router-link>
+            </li>
             <li class="nav-item">            
               <router-link class="nav-link" to="/" v-on:click.native="logout()" replace>Logout</router-link>
             </li>               
