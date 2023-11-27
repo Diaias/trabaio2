@@ -24,7 +24,8 @@ const router = new Router({
       name: 'login',
       component: login
     },
-     {
+
+    {
       path: '/ListFuncionarios',
       name: 'funcionarios-list',
       component: listFuncionarios    
@@ -38,6 +39,22 @@ const router = new Router({
       path: '/addfuncionario',
       name: "funcionario-add",
       component: novoFuncionario
+    },
+
+    {
+      path: '/ListClientes',
+      name: 'clientes-list',
+      component: listClientes    
+    },
+    {
+      path: '/updatecliente/:cpf',
+      name: "cliente-edit",
+      component: editCliente
+    }, 
+    {
+      path: '/addcliente',
+      name: "cliente-add",
+      component: novoCliente
     }
 
   ]

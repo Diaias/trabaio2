@@ -7,10 +7,10 @@ class ClienteController{
     async find(req: Request, res: Response){
         const repository = getRepository(Cliente);
         const cpf = req.params.cpf;
-        const j = repository.createQueryBuilder('tb_pessoa').where({"cpf" : cpf}) ;
-        if(j){
-            console.log(j);      
-            return res.json(j);
+        const f = await repository.findOne({where : {"cpf" : cpf}});
+        if(f){     
+            console.log(f);      
+            return res.json(f);
         }else{
             return res.sendStatus(204);
         }
@@ -19,11 +19,11 @@ class ClienteController{
     async login(req: Request, res: Response){
         const repository = getRepository(Cliente);
         const {cpf, senha} = req.body;
-        const j = await repository.findOne(
+        const f = await repository.findOne(
             {where : {"cpf" : cpf, "senha" : senha }});
-        if(j){
-          //  res.sendStatus(201);
-            return res.json(j);
+        if(f){           
+            res.sendStatus(201);
+            //return res.json(f);
         }else{
             return res.sendStatus(204);
         }

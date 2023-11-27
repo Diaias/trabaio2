@@ -13,6 +13,13 @@ router.post('/storeCliente/', ClienteController.store);
 router.put('/updateCliente/:cpf', ClienteController.update);
 router.delete('/deleteCliente/:cpf', ClienteController.delete);
 
+router.post('/insertcliente/', ClienteController.store);
+router.post('/logincliente', ClienteController.login);
+router.get('/cliente/:cpf', ClienteController.find);
+router.put('/updatecliente/:cpf', ClienteController.update);
+router.delete('/deletecliente/:cpf', ClienteController.delete);
+
+
 //Funcionario
 router.get('/listFuncionario', FuncionarioController.list);
 router.get('/findFuncionario/:cpf', FuncionarioController.find);
