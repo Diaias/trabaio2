@@ -8,6 +8,10 @@ import novoFuncionario   from  '@/components/funcionario/Add'
 import listFuncionarios from  '@/components/funcionario/List'
 import editFuncionario   from  '@/components/funcionario/Edit'
 
+import novoPeca   from  '@/components/peça/Add'
+import listPecas from  '@/components/peça/List'
+import editPeca   from  '@/components/peça/Edit'
+
 
 Vue.use(Router)
 
@@ -38,6 +42,21 @@ const router = new Router({
       path: '/addfuncionario',
       name: "funcionario-add",
       component: novoFuncionario
+    },
+    {
+      path: '/listPecas',
+      name: 'pecas-list',
+      component: listPecas    
+    },
+    {
+      path: '/updatepeca/:id',
+      name: "peca-edit",
+      component: editPeca
+    }, 
+    {
+      path: '/addpeca',
+      name: "peca-add",
+      component: novoPeca
     }
 
   ]

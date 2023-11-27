@@ -7,7 +7,7 @@ class PecaController{
     async find(req: Request, res: Response){
         const repository = getRepository(Pecas);
         const id = req.params.id;
-        const f = repository.createQueryBuilder('tb_pessoa').where({"id" : id}) ;
+        const f = repository.createQueryBuilder('tb_peca').where({"id" : id}) ;
         if(f){     
             console.log(f);      
             return res.json(f);
@@ -16,19 +16,16 @@ class PecaController{
         }
     }
 
-    async login(req: Request, res: Response){
+    async find2(req: Request, res: Response){
         const repository = getRepository(Pecas);
-        const {id, senha} = req.body;
-        const f = await repository.findOne(
-            {where : {"id" : id, "senha" : senha }});
-        if(f){           
-          //  res.sendStatus(201);
+        const f = repository.createQueryBuilder('tb_peca');
+        if(f){     
+            console.log(f);      
             return res.json(f);
         }else{
             return res.sendStatus(204);
         }
     }
-
   
     async list(req: Request, res: Response){
         const repository = getRepository(Pecas);

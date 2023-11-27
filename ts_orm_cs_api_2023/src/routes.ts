@@ -40,6 +40,12 @@ router.post('/storePeca/', PecaController.store);
 router.put('/updatePeca/:cpf', PecaController.update);
 router.delete('/deletePeca/:cpf', PecaController.delete);
 
+router.get('/listpeca', PecaController.find2);
+router.post('/insertpeca/', PecaController.store);
+router.get('/peca/:id', PecaController.find);
+router.put('/updatepeca/:id', PecaController.update);
+router.delete('/deletepeca/:id', PecaController.delete);
+
 //Equipamento
 router.get('/listEquipamento', EquipamentoController.list);
 router.post('/storeEquipamento/', EquipamentoController.store);
