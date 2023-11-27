@@ -8,16 +8,10 @@ import novoFuncionario   from  '@/components/funcionario/Add'
 import listFuncionarios from  '@/components/funcionario/List'
 import editFuncionario   from  '@/components/funcionario/Edit'
 
-<<<<<<< HEAD
 import novoPeca   from  '@/components/peça/Add'
 import listPecas from  '@/components/peça/List'
 import editPeca   from  '@/components/peça/Edit'
 
-=======
-import novoCliente   from  '@/components/cliente/Add'
-import listClientes from  '@/components/cliente/List'
-import editCliente   from  '@/components/cliente/Edit'
->>>>>>> 54a2b70f281511c7d92d0823e42dcc4309a59b21
 
 Vue.use(Router)
 
@@ -50,7 +44,7 @@ const router = new Router({
       name: "funcionario-add",
       component: novoFuncionario
     },
-<<<<<<< HEAD
+
     {
       path: '/listPecas',
       name: 'pecas-list',
@@ -65,8 +59,7 @@ const router = new Router({
       path: '/addpeca',
       name: "peca-add",
       component: novoPeca
-=======
-
+    },
     {
       path: '/ListClientes',
       name: 'clientes-list',
@@ -81,7 +74,6 @@ const router = new Router({
       path: '/addcliente',
       name: "cliente-add",
       component: novoCliente
->>>>>>> 54a2b70f281511c7d92d0823e42dcc4309a59b21
     }
 
   ]
