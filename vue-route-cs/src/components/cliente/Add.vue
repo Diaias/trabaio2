@@ -54,9 +54,7 @@
                                     endereco: "", 
                                     email: "",                                                                        
                                     celular: "",  
-                                    senha: "",
-                                    funcao: "",
-                                    cargo: ""
+                                    senha: ""
                                 },
                 submitted: false,
             }            
@@ -69,8 +67,7 @@
 
                 if (func.nome.trim().length > 0 && func.cpf.trim().length > 0 && 
                     func.endereco.trim().length > 0 && func.email.trim().length > 0 &&
-                    func.celular.trim().length > 0 && func.senha.trim().length > 0 &&
-                    func.funcao.trim().length > 0 && func.cargo.trim().length > 0) {
+                    func.celular.trim().length > 0 && func.senha.trim().length > 0 ) {
                 
                     ClienteDataService.create(func)
                     .then(response => {

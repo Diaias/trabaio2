@@ -20,7 +20,7 @@ class ClienteDataService {
     async list(){
 
         console.log('ClienteDataService.list: ');
-        return await http.get(`/Listclientes`);
+        return await http.get(`/listCliente`);
     }
 
     async delete(cpf){

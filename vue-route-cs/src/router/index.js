@@ -47,7 +47,7 @@ const router = new Router({
     {
       path: '/ListClientes',
       name: 'clientes-list',
-      component: listClientes    
+      component: listClientes   
     },
     {
       path: '/updatecliente/:cpf',

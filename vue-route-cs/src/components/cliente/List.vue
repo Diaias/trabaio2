@@ -22,7 +22,7 @@
                             <td>{{c.endereco}}</td>
                             <td>{{c.email}}</td>
                             <td>{{c.celular}}</td>
-                            <td>{{c.data_cadastro}}</td>           
+                            <td>{{c.data_cadastro | formataData}}</td>           
                             <td><button v-on:click="setCurrentCliente(c, indice)" class="btn" type="button">Alterar</button></td>
                             <td><button v-on:click="remCliente(c, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
