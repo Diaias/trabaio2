@@ -20,6 +20,9 @@
               <router-link class="nav-link" to="/listEquipamentos">Equipamentos</router-link>
             </li>
             <li class="nav-item">
+              <router-link class="nav-link" to="/listServicos">Serviços</router-link>
+            </li>
+            <li class="nav-item">
               <router-link class="nav-link" to="/listClientes">Cliente</router-link>
             </li>
             <li class="nav-item">            

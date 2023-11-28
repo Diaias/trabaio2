@@ -17,6 +17,10 @@ import novoEquipamento   from  '@/components/equipamento/Add'
 import listEquipamentos from  '@/components/equipamento/List'
 import editEquipamento   from  '@/components/equipamento/Edit'
 
+import novoServico   from  '@/components/servico/Add'
+import listServicos from  '@/components/servico/List'
+import editServico   from  '@/components/servico/Edit'
+
 
 import novoCliente   from  '@/components/cliente/Add'
 import listClientes from  '@/components/cliente/List'
@@ -98,6 +102,21 @@ const router = new Router({
       path: '/addequipamento',
       name: "equipamento-add",
       component: novoEquipamento
+    },
+    {
+      path: '/listServicos',
+      name: 'servico-list',
+      component: listServicos
+    },
+    {
+      path: '/updateservico/:id',
+      name: "servico-edit",
+      component: editServico
+    }, 
+    {
+      path: '/addservico',
+      name: "servico-add",
+      component: novoServico
     },
 
   ]

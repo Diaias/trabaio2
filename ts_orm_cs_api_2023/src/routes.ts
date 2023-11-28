@@ -58,7 +58,7 @@ router.delete('/deletepeca/:id', PecaController.delete);
 router.get('/listEquipamento', EquipamentoController.list);
 router.post('/storeEquipamento/', EquipamentoController.store);
 router.put('/updateEquipamento/:cpf', EquipamentoController.update);
-router.delete('/deleteEquipamento/:cpf', EquipamentoController.delete);
+router.delete('/deleteequipamento/:id', EquipamentoController.delete);
 
 router.get('/listequipamento', EquipamentoController.list);
 router.post('/insertEquipamento/', EquipamentoController.store);
