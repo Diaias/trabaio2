@@ -37,6 +37,7 @@ router.delete('/deletefuncionario/:cpf', FuncionarioController.delete);
 
 //Servico
 router.get('/listServico', ServicoController.list);
+router.get('/findServico/:id', ServicoController.find);
 router.post('/storeServico/', ServicoController.store);
 router.put('/updateServico/:cpf', ServicoController.update);
 router.delete('/deleteServico/:cpf', ServicoController.delete);
@@ -59,10 +60,10 @@ router.post('/storeEquipamento/', EquipamentoController.store);
 router.put('/updateEquipamento/:cpf', EquipamentoController.update);
 router.delete('/deleteEquipamento/:cpf', EquipamentoController.delete);
 
-router.get('/listequipamento', PecaController.find2);
-router.post('/insertequipamento/', PecaController.store);
-router.get('/equipamento/:id', PecaController.find);
-router.put('/updateequipamento/:id', PecaController.update);
-router.delete('/deleteequipamento/:id', PecaController.delete);
+router.get('/listequipamento', EquipamentoController.list);
+router.post('/storeEquipamento/', EquipamentoController.store);
+router.get('/equipamento/:id', EquipamentoController.find);
+router.put('/updateequipamento/:id', EquipamentoController.update);
+router.delete('/deleteequipamento/:id', EquipamentoController.delete);
 
 export default router;

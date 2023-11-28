@@ -80,14 +80,14 @@
                 PecaDataService.delete(this.currentPeca.id)
                 .then(response => {
                     console.log(response.data);
-                    this.$router.push({ name: "funcionario-list" });
+                    this.$router.push({ name: "peca-list" });
                 })
                 .catch(e => {
                 console.log(e);
                 });
             },
             voltar(){
-                this.$router.push({ name: "funcionario-list" });
+                this.$router.push({ name: "peca-list" });
             }
          },
          mounted() {

@@ -25,14 +25,14 @@
         </div>     
   
         <button @click="saveEquipamento" class="btn btn-success">Salvar</button>
-        <router-link to="/equipamentos" class="btn btn-success">Voltar</router-link>                
+        <router-link to="/listEquipamentos" class="btn btn-success">Voltar</router-link>                
 
       </div>
   
       <div v-else>
         <h4>Dados enviados com sucesso !</h4>
         <button class="btn btn-success" @click="newEquipamento">Novo</button>
-        <router-link to="/equipamentos" class="btn btn-success">Voltar</router-link>
+        <router-link to="/listEquipamentos" class="btn btn-success">Voltar</router-link>
       </div>
     </div>
   </template>
@@ -61,7 +61,9 @@
 
                 var equip = jQuery.extend({}, this.equipamento);//clona o this.novo_equipamento e armazena na variavel equipamento. dessa forma alteracoes em this.novo_equipamento nao irao refletir em equipamento.
                 var pec = jQuery.extend({}, this.equipamento.pecas);//clona o this.novo_equipamento.peca                        
-                equip.pecas = pec;                                                
+                equip.pecas.id = pec;                                                
+                
+                console.log(pec)
 
                 if (    equip.nome.trim().length > 0 && 
                         equip.marca.trim().length > 0 && 
@@ -109,7 +111,7 @@
         },
         mounted() {                        
             this.listPecas();
-            
+
          }
 
     }

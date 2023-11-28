@@ -16,14 +16,14 @@
         </div>
   
         <button @click="savePeca" class="btn btn-success">Salvar</button>
-        <router-link to="/pecas" class="btn btn-success">Voltar</router-link>                 
+        <router-link to="/listPecas" class="btn btn-success">Voltar</router-link>                 
 
       </div>
   
       <div v-else>
         <h4>Dados enviados com sucesso !</h4>
         <button class="btn btn-success" @click="newPeca">Novo</button>
-        <router-link to="/pecas" class="btn btn-success">Voltar</router-link>
+        <router-link to="/listPecas" class="btn btn-success">Voltar</router-link>
       </div>
     </div>
   </template>

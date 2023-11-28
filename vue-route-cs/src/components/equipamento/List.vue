@@ -20,8 +20,8 @@
                             <td>{{e.marca}}</td>
                             <td>{{e.descricao}}</td>
                
-                            <td><button v-on:click="setCurrentEquipamento(j, indice)" class="btn" type="button">Alterar</button></td>
-                            <td><button v-on:click="remEquipamento(j, indice)" class="btn" type="button">Remover</button></td>
+                            <td><button v-on:click="setCurrentEquipamento(e, indice)" class="btn" type="button">Alterar</button></td>
+                            <td><button v-on:click="remEquipamento(e, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -39,7 +39,7 @@
                     </div>
 
                     <a class="badge badge-warning"
-                    :href="'/equipamento/' + currentEquipamento.id"
+                    :href="'/updateequipamento/' + currentEquipamento.id"
                     >
                     Edit
                     </a>

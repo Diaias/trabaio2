@@ -30,7 +30,7 @@ class EquipamentoDataService {
     async create(data){
 
         console.log('EquipamentoDataService.create: ', data);
-        return await http.post(`/storeEquipamento/`, data);
+        return await http.post(`/storeEquipamento`, data);
 
     }  
 

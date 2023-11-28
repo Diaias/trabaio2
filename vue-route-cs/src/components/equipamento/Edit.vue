@@ -1,57 +1,33 @@
 <template>
     <div id="tab_aut">
      
-       <div v-if="currentJogador" class="edit-form">
-            <h3>Jogador</h3>
+       <div v-if="currentEquipamento" class="edit-form">
+            <h3>Equipamento</h3>
             <form>
                 <div class="form-group">
-                    <label for="inputNickname">Nickname:</label>
-                    <input type="text" v-model="currentJogador.nickname" class="form-control" id="inputNickname">
+                    <label for="inputNome">Nome:</label>
+                    <input type="text" v-model="currentEquipamento.nome" class="form-control" id="inputNome">
                 </div>
                 <div class="form-group">
-                    <label for="inputSenha">Senha:</label>
-                    <input type="password" v-model="currentJogador.senha" class="form-control" id="inputSenha">
+                        <label for="inputMarca">Marca:</label>
+                        <input type="text" v-model="currentEquipamento.marca" class="form-control" id="inputMarca" >
                 </div>
                 <div class="form-group">
-                        <label for="inputDtCad">D. Cadastro:</label>
-                        <input type="text" v-model="currentJogador.data_cadastro" class="form-control" id="inputDtCad" disabled>
+                    <label for="inputDescricao">Descrição:</label>
+                    <input type="text" v-model="currentEquipamento.descricao" class="form-control" id="inputDescricao" >
                 </div>
                 <div class="form-group">
-                    <label for="inputDtLast">D. Último Acesso:</label>
-                    <input type="text" v-model="currentJogador.data_ultimo_login" class="form-control" id="inputDtLast" disabled>
-                </div>
-                <div class="form-group">
-                        <label for="inputQtdPontos">Quantidade de Pontos:</label>
-                        <input type="number" v-model="currentJogador.pontos" class="form-control" id="inputQtdPontos">
-                </div>
-                <div class="form-group">
-                    <label for="inputQtdDin">Quantidade de dinheiro:</label>
-                    <input type="number" v-model="currentJogador.quantdinheiro" class="form-control" id="inputQtdDin">
-                </div>
-                <div class="form-group">
-                    <label for="checkSituacao">Situação:</label>
-                    <input type="checkbox" v-model="currentJogador.situacao" id="checkSituacao">
-                </div>
-                <div class="form-group">
-                    <label for="inputCep">Cep:</label>
-                    <input type="text" v-model="currentJogador.endereco.cep" class="form-control" id="inputCep">
-                </div>
-                <div class="form-group">
-                    <label for="inputCom">Complemento:</label>
-                    <input type="text" v-model="currentJogador.endereco.complemento" class="form-control" id="inputCom">
-                </div>
-                <div class="form-group">
-                    <label for="selectPatente">Patentes:</label>
-                    <select v-model="currentJogador.patentes" class="form-control" id="selectPatente" multiple>                                
-                        <option v-for="p in patentes" :key ="p.codigo" v-bind:value="p">
+                    <label for="selectPeca">Pecas:</label>
+                    <select v-model="currentEquipamento.pecas" class="form-control" id="selectPeca" multiple>                                
+                        <option v-for="p in pecas" :key ="p.id" v-bind:value="p">
                             {{ p.nome }}
                             </option>
                     </select>
                     
                 </div>                        
             </form>
-            <button class="badge badge-success" @click="updateJogador">Salvar</button>
-            <button class="badge badge-danger mr-2" @click="deleteJogador">Delete</button>
+            <button class="badge badge-success" @click="updateEquipamento">Salvar</button>
+            <button class="badge badge-danger mr-2" @click="deleteEquipamento">Delete</button>
             <button class="badge badge-danger mr-2" @click="voltar">Voltar</button>
 
             
@@ -60,7 +36,7 @@
        </div>
        <div v-else>
             <br />
-            <p>Please click on a Jogador...</p>
+            <p>Please click on a Equipamento...</p>
         </div>
 
                                           
@@ -68,78 +44,80 @@
  </template>
  <script>
  
-     import JogadorDataService from '../../services/JogadorDataService'
-     import PatenteDataService from '../../services/PatenteDataService'
+     import EquipamentoDataService from '../../services/EquipamentoDataService'
+     import PecaDataService from '../../services/PecaDataService'
  
      export default{
-      name:'editJogadores',
+      name:'editEquipamentos',
       data() {
              return {                
-                 currentJogador: null,
+                 currentEquipamento: null,
                  message: '',
-                 patentes: []
+                 pecas: []
              }
          },
          methods: {
 
-            getJogador(nickname){
+            getEquipamento(id){
 
-                JogadorDataService.get(nickname)
+                EquipamentoDataService.get(id)
                 .then(response => {
+                    
                     console.log(response.data);
-                    this.currentJogador = response.data;
+
+                    this.currentEquipamento = response.data;
                     
                 })
                 .catch(e=> {
                     console.log(e);
                 })
             },
-            listPatentes(){
+            listPecas(){
 
-                PatenteDataService.list().then(response =>{
+                PecaDataService.list().then(response =>{
 
-                    console.log("Retorno do seviço PatenteDataService.list", response.status);
-
-                    this.patentes = response.data;                                  
+                    console.log("Retorno do seviço PecaDataService.list", response.status);
+                    console.log(response.data)
+                    this.pecas = response.data;                                  
 
                 }).catch(response => {
 
                 // error callback
-                alert('Não conectou no serviço PatenteDataService.list');
+                alert('Não conectou no serviço PecaDataService.list');
                 console.log(response);
                 });               
             },
-            updateJogador(){
+            updateEquipamento(){
 
-                JogadorDataService.update(this.currentJogador)
+                EquipamentoDataService.update(this.currentEquipamento)
                 .then(response => {
-                    console.log('JogadorDataService.update');
-                    this.message = 'Jogador alterado com sucesso !';
+                    console.log('EquipamentoDataService.update');
+                    this.message = 'Equipamento alterado com sucesso !';
                 })
                 .catch(e =>{
                     console.log(e);
                 })
             },
-            deleteJogador(){
+            deleteEquipamento(){
 
-                JogadorDataService.delete(this.currentTutorial.nickname)
+                EquipamentoDataService.delete(this.currentTutorial.id)
                 .then(response => {
                     console.log(response.data);
-                    this.$router.push({ name: "jogadores-list" });
+                    this.$router.push({ name: "equipamento-list" });
                 })
                 .catch(e => {
                 console.log(e);
                 });
             },
             voltar(){
-                this.$router.push({ name: "jogadores-list" });
+                this.$router.push({ name: "equipamento-list" });
             }
          },
          mounted() {
             
             this.message = '';
-            this.listPatentes();
-            this.getJogador(this.$route.params.nickname);
+            this.listPecas();
+            this.getEquipamento(this.$route.params.id);
          }
      }
  </script>

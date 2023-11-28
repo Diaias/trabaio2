@@ -1,21 +1,35 @@
 import {Request, Response} from 'express';
 import {getRepository} from 'typeorm';
 import Equipamento from '../models/Equipamento';
+import Pecas from '../models/Pecas';
 
 class EquipamentoController{
 
     async find(req: Request, res: Response){
         const repository = getRepository(Equipamento);
         const id = req.params.id;
-        const s = repository.createQueryBuilder('tb_equipamento').where({"id" : id}).leftJoinAndSelect("tb_equipamento.pecas", "pecas").getMany();
+        const e = await repository.createQueryBuilder('tb_equipamento').where({id : id }).leftJoinAndSelect("tb_equipamento.pecas", "pecas").getOne();
+        if(e){
+            console.log(e);      
+            return res.json(e);
+        }else{
+            return res.sendStatus(204);
+        }
+    }
+
+    async find2(req: Request, res: Response){
+        const repository = getRepository(Equipamento);
+        const id = req.params.id;
+        const s = repository.createQueryBuilder('tb_equipamento').where({"id" : id}).leftJoinAndSelect("tb_equipamento.pecas", "pecas").getOne();
         // const j = await repository.createQueryBuilder('tb_jogador').where({"nickname" : nickname}).innerJoinAndSelect("tb_jogador.endereco", "endereco").leftJoinAndSelect("tb_jogador.patentes", "patente").getOne();
         if(s){
-            console.log(s);      
+            console.log(id);      
             return res.json(s);
         }else{
             return res.sendStatus(204);
         }
     }
+
 
     async list(req: Request, res: Response){
         const repository = getRepository(Equipamento);
@@ -49,10 +63,15 @@ class EquipamentoController{
 
     async store(req: Request, res: Response){
         const repository = getRepository(Equipamento);
+        const repositoryPeca = getRepository(Pecas);
         const {id} = req.body;
         const idExists = await repository.findOne({where : {id}});// Testa para ver se tem um id igual
         if(!idExists){ //Se nn tem um id igual ele cria 
+            console.log(req.body);         
+
             const s = repository.create(req.body); //cria a entidade Servico
+            
+            
             await repository.save(s);//efetiva a operacao de insert do Servico.
             return res.json(s);//retorna o bojeto json no response.
         }else{

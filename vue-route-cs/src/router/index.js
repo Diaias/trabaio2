@@ -41,7 +41,7 @@ const router = new Router({
 
     {
       path: '/ListFuncionarios',
-      name: 'funcionarios-list',
+      name: 'funcionario-list',
       component: listFuncionarios    
     },
     {
@@ -56,7 +56,7 @@ const router = new Router({
     },
     {
       path: '/listPecas',
-      name: 'pecas-list',
+      name: 'peca-list',
       component: listPecas    
     },
     {
@@ -71,7 +71,7 @@ const router = new Router({
     },
     {
       path: '/ListClientes',
-      name: 'clientes-list',
+      name: 'cliente-list',
       component: listClientes   
     },
     {
@@ -86,7 +86,7 @@ const router = new Router({
     },
     {
       path: '/listEquipamentos',
-      name: 'equipamentos-list',
+      name: 'equipamento-list',
       component: listEquipamentos    
     },
     {

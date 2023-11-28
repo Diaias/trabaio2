@@ -36,14 +36,14 @@
         </div>
   
         <button @click="saveFuncionario" class="btn btn-success">Salvar</button>
-        <router-link to="/funcionarios" class="btn btn-success">Voltar</router-link>                 
+        <router-link to="/listfuncionarios" class="btn btn-success">Voltar</router-link>                 
 
       </div>
   
       <div v-else>
         <h4>Dados enviados com sucesso !</h4>
         <button class="btn btn-success" @click="newFuncionario">Novo</button>
-        <router-link to="/funcionarios" class="btn btn-success">Voltar</router-link>
+        <router-link to="/listfuncionarios" class="btn btn-success">Voltar</router-link>
       </div>
     </div>
   </template>

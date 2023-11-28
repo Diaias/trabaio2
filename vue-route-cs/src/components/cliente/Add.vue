@@ -24,18 +24,18 @@
         </div>
         <div class="form-group">
             <label for="inputsenha">senha:</label>
-            <input type="text" v-model="cliente.senha" class="form-control" id="inputsenha">
+            <input type="password" v-model="cliente.senha" class="form-control" id="inputsenha">
         </div>
 
         <button @click="saveCliente" class="btn btn-success">Salvar</button>
-        <router-link to="/clientes" class="btn btn-success">Voltar</router-link>                 
+        <router-link to="/listclientes" class="btn btn-success">Voltar</router-link>                 
 
       </div>
   
       <div v-else>
         <h4>Dados enviados com sucesso !</h4>
         <button class="btn btn-success" @click="newCliente">Novo</button>
-        <router-link to="/clientes" class="btn btn-success">Voltar</router-link>
+        <router-link to="/listclientes" class="btn btn-success">Voltar</router-link>
       </div>
     </div>
   </template>
