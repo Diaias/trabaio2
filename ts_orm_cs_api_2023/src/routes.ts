@@ -61,7 +61,7 @@ router.put('/updateEquipamento/:cpf', EquipamentoController.update);
 router.delete('/deleteEquipamento/:cpf', EquipamentoController.delete);
 
 router.get('/listequipamento', EquipamentoController.list);
-router.post('/storeEquipamento/', EquipamentoController.store);
+router.post('/insertEquipamento/', EquipamentoController.store);
 router.get('/equipamento/:id', EquipamentoController.find);
 router.put('/updateequipamento/:id', EquipamentoController.update);
 router.delete('/deleteequipamento/:id', EquipamentoController.delete);

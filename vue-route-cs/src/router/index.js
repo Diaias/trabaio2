@@ -87,7 +87,7 @@ const router = new Router({
     {
       path: '/listEquipamentos',
       name: 'equipamento-list',
-      component: listEquipamentos    
+      component: listEquipamentos
     },
     {
       path: '/updateequipamento/:id',

@@ -100,7 +100,7 @@
             },
             deleteEquipamento(){
 
-                EquipamentoDataService.delete(this.currentTutorial.id)
+                EquipamentoDataService.delete(this.currentEquipamento.id)
                 .then(response => {
                     console.log(response.data);
                     this.$router.push({ name: "equipamento-list" });
