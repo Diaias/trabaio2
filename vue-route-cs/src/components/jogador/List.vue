@@ -19,8 +19,6 @@
                             <td>{{j.data_cadastro | formataData}}</td>
                             <td>{{j.pontos}}</td>
                             <td>{{j.endereco.cep}}</td>
-                            <td v-if="j.situacao == 'A'"><input type="checkbox" checked disabled></td>
-                            <td v-if="j.situacao == 'I'"><input type="checkbox" disabled></td>                     
                             <td><button v-on:click="setCurrentJogador(j, indice)" class="btn" type="button">Alterar</button></td>
                             <td><button v-on:click="remJogador(j, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
@@ -75,7 +73,6 @@
          methods: {
             listarJogadores(){
 
-                
                 JogadorDataService.list().then(response =>{
 
                     console.log("Retorno do seviço authenticateJogador", response.status);
@@ -111,7 +108,7 @@
                 this.currentTutorial = null;
                 this.currentIndex = -1;
             }
-            
+
          },
          mounted() {
             this.listarJogadores();

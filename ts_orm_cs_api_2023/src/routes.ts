@@ -59,4 +59,10 @@ router.post('/storeEquipamento/', EquipamentoController.store);
 router.put('/updateEquipamento/:cpf', EquipamentoController.update);
 router.delete('/deleteEquipamento/:cpf', EquipamentoController.delete);
 
+router.get('/listequipamento', PecaController.find2);
+router.post('/insertequipamento/', PecaController.store);
+router.get('/equipamento/:id', PecaController.find);
+router.put('/updateequipamento/:id', PecaController.update);
+router.delete('/deleteequipamento/:id', PecaController.delete);
+
 export default router;

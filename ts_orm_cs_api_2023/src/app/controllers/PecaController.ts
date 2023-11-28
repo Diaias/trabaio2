@@ -7,10 +7,10 @@ class PecaController{
     async find(req: Request, res: Response){
         const repository = getRepository(Pecas);
         const id = req.params.id;
-        const f = repository.createQueryBuilder('tb_peca').where({"id" : id}) ;
-        if(f){     
-            console.log(f);      
-            return res.json(f);
+        const p = await repository.findOne({where : {"id" : id}});
+        if(p){     
+            console.log(p);      
+            return res.json(p);
         }else{
             return res.sendStatus(204);
         }
