@@ -80,8 +80,8 @@ export default {
         return {
             currentServico: null,
             message: '',
-            cliente: [],
             funcionario: [],
+            cliente: [],
             equipamento: []
         }
     },
@@ -91,6 +91,7 @@ export default {
                 .then(response => {
                     console.log(response.data);
                     this.currentServico = response.data;
+                    console.log(this.currentServico)
                 })
                 .catch(e => {
                     console.log(e);
@@ -170,6 +171,7 @@ export default {
         this.listFuncionario();
         this.listEquipamento();
         this.getServico(this.$route.params.id);
+        console.log(this.currentServico)
     }
 }
 </script>
