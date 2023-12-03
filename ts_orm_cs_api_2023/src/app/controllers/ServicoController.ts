@@ -7,7 +7,8 @@ class ServicoController{
     async find(req: Request, res: Response){
         const repository = getRepository(Servico);
         const id = req.params.id;
-        const s = repository.createQueryBuilder('tb_servico').where({"id" : id}).innerJoinAndSelect("tb_servico.funcionario", "funcionario").innerJoinAndSelect("tb_servico.equipamento", "equipamento").getOne();
+        //const s = await repository.findOne({where : {"id" : id}});
+        const s = await repository.createQueryBuilder('tb_servico').where({"id" : id}).innerJoinAndSelect("tb_servico.funcionario", "funcionario").innerJoinAndSelect("tb_servico.cliente", "cliente").leftJoinAndSelect("tb_servico.equipamento", "equipamento").getOne();
         // const j = await repository.createQueryBuilder('tb_jogador').where({"nickname" : nickname}).innerJoinAndSelect("tb_jogador.endereco", "endereco").leftJoinAndSelect("tb_jogador.patentes", "patente").getOne();
         if(s){
             console.log(s);      
