@@ -8,14 +8,15 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Marca</th>
                     <th scope="col">Descrição</th> 
+                    <th scope="col">Orçamento</th> 
                     <th scope="col">Alterar</th>
                     <th scope="col">Remover</th>
                 </tr>                     
                 <tbody>
                     <tr v-for="(s, indice) in servico" :key ="s.id" :class="{ active: indice == currentIndex }">
                             <td>{{s.id}}</td>
+                            <td>{{s.nome}}</td>
                             <td>{{s.descricao}}</td>
                             <td>{{s.orcamento}}</td>
                             <td>{{s.data_pedido | formataData}}</td>
@@ -35,7 +36,7 @@
                     <label><strong>Id:</strong></label> {{ currentServico.id }}
                     </div>
                     <div>
-                    <label><strong>Nome:</strong></label> {{ currentServico.cliente }}
+                    <label><strong>Nome:</strong></label> {{ currentServico.nome }}
                     </div>
 
                     <a class="badge badge-warning"

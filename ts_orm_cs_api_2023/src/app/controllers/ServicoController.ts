@@ -19,7 +19,7 @@ class ServicoController{
 
     async list(req: Request, res: Response){
         const repository = getRepository(Servico);
-        const lista = await repository.createQueryBuilder('tb_servico').innerJoinAndSelect("tb_servico.funcionario", "funcionario").innerJoinAndSelect("tb_servico.cliente", "cliente").innerJoinAndSelect("tb_servico.equipamento", "equipamento").getOne();
+        const lista = await repository.createQueryBuilder('tb_servico').innerJoinAndSelect("tb_servico.funcionario", "funcionario").innerJoinAndSelect("tb_servico.cliente", "cliente").leftJoinAndSelect("tb_servico.equipamento", "equipamento").getMany();
         return res.json(lista);
     }
 

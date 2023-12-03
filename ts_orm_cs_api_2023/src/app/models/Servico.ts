@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, ManyToMany, JoinTable } from 'typeorm';
 import Funcionario from './Funcionario';
 import Cliente from './Cliente';
 import Equipamento from './Equipamento';
@@ -8,6 +8,9 @@ import Equipamento from './Equipamento';
 export class Servico {
     @PrimaryGeneratedColumn()
     id: number;
+
+    @Column("varchar", { length: 200 })
+    nome: string;
 
     @Column("varchar", { length: 200 })
     descricao: string;
@@ -26,8 +29,12 @@ export class Servico {
     @JoinColumn({ name: "cliente", referencedColumnName: "cpf" })
     cliente: Cliente;
 
-    @ManyToOne(type => Equipamento)
-    @JoinColumn({ name: "equipamento", referencedColumnName: "id" })
-    equipamento: Equipamento;
+    @ManyToMany(() => Equipamento)
+    @JoinTable({name : "tb_servico_equipamento", 
+                joinColumn: {name: "equipamento_id", 
+                             referencedColumnName: "id"}, 
+                inverseJoinColumn: {name: "equipamento_id", 
+                                    referencedColumnName: "id"}})
+    equipamento: Equipamento[];
 }
 export default Servico;

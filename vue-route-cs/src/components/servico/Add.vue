@@ -19,7 +19,7 @@
             <!--Select Cliente-->
             <div class="form-group">
                 <label for="selectCliente">Clientes:</label>
-                <select v-model="servico.cliente" class="form-control" id="selectCliente" multiple>
+                <select v-model="servico.cliente" class="form-control" id="selectCliente" >
                     <option v-for="c in cliente" :key="c.cpf" v-bind:value="c">
                         {{ c.nome }}
                     </option>
@@ -29,7 +29,7 @@
             <!--Select Funcionario-->
             <div class="form-group">
                 <label for="selectFuncionario">Funcionarios:</label>
-                <select v-model="servico.funcionario" class="form-control" id="selectFuncionario" multiple>
+                <select v-model="servico.funcionario" class="form-control" id="selectFuncionario" >
                     <option v-for="f in funcionario" :key="f.cpf" v-bind:value="f">
                         {{ f.nome }}
                     </option>
@@ -94,11 +94,11 @@ export default {
             var func = jQuery.extend({}, this.servico.funcionario);//clona o this.novo_servico.peca
             var equi = jQuery.extend({}, this.servico.equipamento);//clona o this.novo_servico.peca
 
-            servico.cliente.id = cli;
-            servico.funcionario.cpf = func;
-            servico.equipamento.cpf = equi;
+            servico.cliente.cpf = cli.cpf;
+            servico.funcionario.cpf = func.cpf;
+            servico.equipamento.id = equi.id;
 
-            console.log(pec)
+            console.log(this.servico)
 
             if (servico.nome.trim().length > 0 &&
                 servico.descricao.trim().length > 0) {
