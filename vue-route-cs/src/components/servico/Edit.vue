@@ -162,7 +162,9 @@ export default {
     mounted() {
 
         this.message = '';
-        this.listPecas();
+        this.listCliente();
+        this.listFuncionario();
+        this.listEquipamento();
         this.getServico(this.$route.params.id);
     }
 }
