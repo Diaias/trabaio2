@@ -67,9 +67,6 @@
         </div>
     </div>
 </template>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"></script>
-<script src="https://unpkg.com/vuelidate@0.7.4/dist/vuelidate.min.js"></script>
-<script src="https://unpkg.com/vuelidate@0.7.4/dist/validators.min.js"></script>
 <script>
 
     import ClienteDataService from '../../services/ClienteDataService'
@@ -89,14 +86,6 @@
                 submitted: false,
             }            
         },
-        Vue.use(window.vuelidate.default);
-        const {
-        required,
-        minLength,
-        minValue,
-        between
-        } = window.validators;
-        Vue.prototype.$http = axios;
         
         validations: {
             cliente: {
@@ -173,8 +162,6 @@
     }
 
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $("#inputcliente_cpfPet").mask("000.000.000-00");

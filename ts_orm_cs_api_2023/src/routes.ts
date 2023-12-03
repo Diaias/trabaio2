@@ -39,8 +39,9 @@ router.delete('/deletefuncionario/:cpf', FuncionarioController.delete);
 router.get('/listServico', ServicoController.list);
 router.get('/findServico/:id', ServicoController.find);
 router.post('/storeServico/', ServicoController.store);
-router.put('/updateServico/:cpf', ServicoController.update);
-router.delete('/deleteServico/:cpf', ServicoController.delete);
+router.put('/updateServico/:id', ServicoController.update);
+router.delete('/deleteservico/:id', ServicoController.delete);
+router.get('/servico/:id', ServicoController.find);
 
 //Peca
 router.get('/listPeca', PecaController.list);

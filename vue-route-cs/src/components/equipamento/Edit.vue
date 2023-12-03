@@ -5,6 +5,10 @@
             <h3>Equipamento</h3>
             <form>
                 <div class="form-group">
+                    <label for="inputid">Id:</label>
+                    <input type="text" v-model="currentEquipamento.id" class="form-control" id="inputid" disabled>
+                </div>
+                <div class="form-group">
                     <label for="inputNome">Nome:</label>
                     <input type="text" v-model="currentEquipamento.nome" class="form-control" id="inputNome">
                 </div>

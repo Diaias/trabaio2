@@ -5,6 +5,10 @@
             <h3>Servico</h3>
             <form>
                 <div class="form-group">
+                    <label for="inputid">Id:</label>
+                    <input type="text" v-model="currentServico.id" class="form-control" id="inputid" disabled>
+                </div>
+                <div class="form-group">
                     <label for="inputNome">Nome:</label>
                     <input type="text" v-model="currentServico.nome" class="form-control" id="inputNome">
                 </div>
@@ -14,13 +18,13 @@
                 </div>
                 <div class="form-group">
                 <label for="inputOrcamento">Orcamento:</label>
-                <input type="text" v-model="servico.orcamento" class="form-control" id="inputOrcamento">
+                <input type="text" v-model="currentServico.orcamento" class="form-control" id="inputOrcamento">
             </div>
 
             <!--Select Cliente-->
             <div class="form-group">
                 <label for="selectCliente">Clientes:</label>
-                <select v-model="servico.cliente" class="form-control" id="selectCliente" >
+                <select v-model="currentServico.cliente" class="form-control" id="selectCliente" >
                     <option v-for="c in cliente" :key="c.cpf" v-bind:value="c">
                         {{ c.nome }}
                     </option>
@@ -30,7 +34,7 @@
             <!--Select Funcionario-->
             <div class="form-group">
                 <label for="selectFuncionario">Funcionarios:</label>
-                <select v-model="servico.funcionario" class="form-control" id="selectFuncionario" >
+                <select v-model="currentServico.funcionario" class="form-control" id="selectFuncionario" >
                     <option v-for="f in funcionario" :key="f.cpf" v-bind:value="f">
                         {{ f.nome }}
                     </option>
@@ -40,7 +44,7 @@
             <!--Select Equipamento-->
             <div class="form-group">
                 <label for="selectEquipamento">Equipamentos:</label>
-                <select v-model="servico.equipamento" class="form-control" id="selectEquipamento" multiple>
+                <select v-model="currentServico.equipamento" class="form-control" id="selectEquipamento" multiple>
                     <option v-for="e in equipamento" :key="e.id" v-bind:value="e">
                         {{ e.nome }}
                     </option>
@@ -162,7 +166,9 @@ export default {
     mounted() {
 
         this.message = '';
-        this.listPecas();
+        this.listCliente();
+        this.listFuncionario();
+        this.listEquipamento();
         this.getServico(this.$route.params.id);
     }
 }
