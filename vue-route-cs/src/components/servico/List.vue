@@ -87,7 +87,6 @@
                 });
             },
             setCurrentServico(servico, index){
-
                 this.currentServico = servico;
                 this.currentIndex = index;
             },
