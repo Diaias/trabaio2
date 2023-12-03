@@ -1,7 +1,6 @@
 <template>
     <div class="submit-form">
       <div v-if="!submitted">       
-
         <div class="form-group">
             <label for="inputNome">nome:</label>
             <input type="text" v-model="cliente.nome" class="form-control" id="inputNome">
