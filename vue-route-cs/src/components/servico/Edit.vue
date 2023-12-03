@@ -85,6 +85,7 @@ export default {
                 .then(response => {
                     console.log(response.data);
                     this.currentServico = response.data;
+                    console.log(this.currentServico)
                 })
                 .catch(e => {
                     console.log(e);
