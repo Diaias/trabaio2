@@ -91,7 +91,6 @@
                 this.currentIndex = index;
             },
             remPeca(peca, index){
-
                 PecaDataService.delete(peca.id)
                 .then(response => {
                     console.log(response.data);
@@ -100,7 +99,6 @@
                 .catch(e => {
                     console.log(e);
                 });
-
             },
             refreshList() {
                 this.listarPecas();

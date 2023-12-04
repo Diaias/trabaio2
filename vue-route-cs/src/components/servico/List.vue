@@ -44,6 +44,7 @@
                     >
                     Edit
                     </a>
+                    
             </div>
             <div v-else>
                 <br />
