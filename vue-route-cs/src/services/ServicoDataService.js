@@ -15,6 +15,12 @@ class ServicoDataService {
         return await http.get(`/listservico`);
     }
 
+    async find(){
+
+        console.log('ServicoDataService.find: ');
+        return await http.get(`/findservico`);
+    }
+
     async delete(id){
 
         console.log('ServicoDataService.delete: ', id);

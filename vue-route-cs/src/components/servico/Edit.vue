@@ -73,6 +73,7 @@ import ServicoDataService from '../../services/ServicoDataService'
 import ClienteDataService from '../../services/ClienteDataService'
 import FuncionarioDataService from '../../services/FuncionarioDataService'
 import EquipamentoDataService from '../../services/EquipamentoDataService'
+import PecaDataService from '../../services/PecaDataService'
 
 export default {
     name: 'editServicos',
@@ -138,6 +139,22 @@ export default {
             });
         },
 
+         listPecas(){
+
+                PecaDataService.list().then(response =>{
+
+                    console.log("Retorno do seviço PecaDataService.list", response.status);
+                    console.log(response.data)
+                    this.equipamento.pecas = response.data;                    
+
+                }).catch(response => {
+
+                // error callback
+                alert('Não conectou no serviço PecaDataService.list');
+                console.log(response);
+                });               
+            },
+
         updateServico() {
 
             ServicoDataService.update(this.currentServico)
@@ -171,6 +188,7 @@ export default {
         this.listCliente();
         this.listFuncionario();
         this.listEquipamento();
+        this.listPecas();
         this.getServico(this.$route.params.id);
         console.log(this.currentServico)
     }

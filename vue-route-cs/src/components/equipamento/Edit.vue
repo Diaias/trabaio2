@@ -82,7 +82,7 @@
 
                     console.log("Retorno do seviço PecaDataService.list", response.status);
                     console.log(response.data)
-                    this.pecas = response.data;                                  
+                    this.pecas = response.data;                    
 
                 }).catch(response => {
 
@@ -123,6 +123,7 @@
             this.message = '';
             this.listPecas();
             this.getEquipamento(this.$route.params.id);
+            console.log()
          }
      }
  </script>

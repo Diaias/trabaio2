@@ -75,8 +75,8 @@ export default {
                 nome: '',
                 descricao: "",
                 orcamento: "",
-                cliente: [],
-                funcionario: [],
+                cliente: {},
+                funcionario: {},
                 equipamento: []
             },
             submitted: false,
@@ -160,7 +160,8 @@ export default {
                 alert('Não conectou no serviço EquipamentoDataService.list');
                 console.log(response);
             });
-        }
+        },
+        
 
     },
     mounted() {
