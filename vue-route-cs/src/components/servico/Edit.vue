@@ -144,6 +144,7 @@ export default {
                 .then(response => {
                     console.log('ServicoDataService.update');
                     this.message = 'Servico alterado com sucesso !';
+                    this.voltar();
                 })
                 .catch(e => {
                     console.log(e);

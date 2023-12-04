@@ -74,6 +74,7 @@
                 .then(response => {
                     console.log('ClienteDataService.update');
                     this.message = 'Cliente alterado com sucesso !';
+                    this.voltar();
                 })
                 .catch(e =>{
                     console.log(e);

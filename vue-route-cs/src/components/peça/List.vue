@@ -106,7 +106,7 @@
                 this.listarPecas();
                 this.currentTutorial = null;
                 this.currentIndex = -1;
-            }
+            },
             
          },
          mounted() {

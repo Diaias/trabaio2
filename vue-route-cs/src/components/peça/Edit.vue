@@ -70,6 +70,7 @@
                 .then(response => {
                     console.log('PecaDataService.update');
                     this.message = 'Peca alterado com sucesso !';
+                    this.voltar();
                 })
                 .catch(e =>{
                     console.log(e);

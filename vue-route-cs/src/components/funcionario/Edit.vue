@@ -82,6 +82,7 @@
                 .then(response => {
                     console.log('FuncionarioDataService.update');
                     this.message = 'Funcionario alterado com sucesso !';
+                    this.voltar();
                 })
                 .catch(e =>{
                     console.log(e);
