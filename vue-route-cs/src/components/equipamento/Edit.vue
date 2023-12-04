@@ -97,6 +97,7 @@
                 .then(response => {
                     console.log('EquipamentoDataService.update');
                     this.message = 'Equipamento alterado com sucesso !';
+                    this.voltar();
                 })
                 .catch(e =>{
                     console.log(e);

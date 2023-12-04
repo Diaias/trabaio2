@@ -42,7 +42,7 @@
                     console.log("Retorno do seviço authenticateFuncionario", response.status);
                     if(response.status == 201 || response.status == 200){
 
-                        alert('Funcionario '+ response.data.nome + ' authenticate com sucesso');       
+                        alert('Funcionario authenticate com sucesso');       
                         
                         this.setAuthenticated({cpf: response.data.cpf})
                         
